@@ -12,6 +12,7 @@
 		BFE5ECFD292E81D400098FA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE5ECFC292E81D400098FA0 /* Assets.xcassets */; };
 		BFE5ED00292E81D400098FA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE5ECFF292E81D400098FA0 /* Preview Assets.xcassets */; };
 		BFE5ED15292E850500098FA0 /* Viga.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFE5ED13292E850500098FA0 /* Viga.xcdatamodeld */; };
+		BFE5ED17292E85F000098FA0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE5ED16292E85F000098FA0 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		BFE5ECFC292E81D400098FA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFE5ECFF292E81D400098FA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BFE5ED14292E850500098FA0 /* Viga.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Viga.xcdatamodel; sourceTree = "<group>"; };
+		BFE5ED16292E85F000098FA0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		BFE5ECF7292E81D300098FA0 /* ExamenFinal */ = {
 			isa = PBXGroup;
 			children = (
+				BFE5ED16292E85F000098FA0 /* CoreDataManager.swift */,
 				BFE5ECF8292E81D300098FA0 /* ExamenFinalApp.swift */,
 				BFE5ECFA292E81D300098FA0 /* ContentView.swift */,
 				BFE5ECFC292E81D400098FA0 /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			files = (
 				BFE5ECFB292E81D300098FA0 /* ContentView.swift in Sources */,
 				BFE5ED15292E850500098FA0 /* Viga.xcdatamodeld in Sources */,
+				BFE5ED17292E85F000098FA0 /* CoreDataManager.swift in Sources */,
 				BFE5ECF9292E81D300098FA0 /* ExamenFinalApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
