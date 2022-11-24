@@ -42,5 +42,26 @@ class CoreDataManager{
         
         
     }
+    func leerTodasLasVigas() -> [Viga]{
+        let fetchRequest : NSFetchRequest<Viga> = Viga.fetchRequest()
+        
+        do{
+            return try persistentContainer.viewContext.fetch(fetchRequest)
+        }
+        catch{
+            return[]
+        }
+    }
+    func borrarViga(viga: Viga){
+        persistentContainer.viewContext.delete(viga)
+        
+        do{
+            try persistentContainer.viewContext.save()
+        }catch{
+            persistentContainer.viewContext.rollback()
+            print("Failed to save context \(error.localizedDescription)")
+        }
+    }
+    
     
 }
