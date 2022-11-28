@@ -10,25 +10,25 @@ import CoreData
 
 struct ContentView: View {
     let coreDM: CoreDataManager
-    @State var clave_viga = " "
-    @State var clave_obra = " "
+    @State var clave_viga = ""
+    @State var clave_obra = ""
     @State var peso = ""
     @State var longitud = ""
-    @State var material = " "
+    @State var material = ""
     @State var seleccionado: Viga?
     @State var vigArray = [Viga]()
 
     var body: some View {
         VStack{
-            TextField("Clave de viga", text: $peso)
+            TextField("Clave de viga", text: $clave_viga)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Clave de Obra", text: $peso)
+            TextField("Clave de Obra", text: $clave_obra)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Peso de viga", text: $peso)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("Longitud de viga", text: $longitud)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Longitud de viga", text: $peso)
+            TextField("Material", text: $material)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Button("Save"){
                 if (seleccionado != nil){
@@ -47,6 +47,7 @@ struct ContentView: View {
                 peso = ""
                 longitud = ""
                 material = " "
+                seleccionado = nil
                
                 
             }
