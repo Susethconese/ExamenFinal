@@ -52,6 +52,41 @@ class CoreDataManager{
             return[]
         }
     }
+    
+    func leerViga (clave_viga:String) -> Viga?{
+    let fetchRequest : NSFetchRequest<Viga> = Viga.fetchRequest ()
+    let predicate = NSPredicate (format: "clave_viga = %@", clave_viga)
+    fetchRequest.predicate = predicate
+    do {
+        let datos = try persistentContainer.viewContext.fetch(fetchRequest)
+        return datos.first
+    }
+    catch{
+        print ("Failed to save error en \(error)")
+    }
+     return nil
+    
+    }
+    
+    func actualizarViga(viga: Viga) {
+        let fetchRequest : NSFetchRequest<Viga> = Viga.fetchRequest ()
+        let predicate = NSPredicate (format: "clave_viga = %@", viga.clave_viga ?? "")
+    fetchRequest.predicate = predicate
+    do {
+    let datos = try persistentContainer.viewContext.fetch(fetchRequest)
+    let p = datos.first
+        p?.material = viga.material
+        p?.longitud = viga.longitud
+        p?.peso = viga.peso
+        p?.clave_obra = viga.clave_obra
+    try persistentContainer.viewContext.save ()
+    print ("viga guardada")
+    }
+    catch{
+    print ("Failed to save error en \(error)")
+    }
+    }
+    
     func borrarViga(viga: Viga){
         persistentContainer.viewContext.delete(viga)
         
