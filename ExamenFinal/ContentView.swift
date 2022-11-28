@@ -15,28 +15,39 @@ struct ContentView: View {
     @State var peso = ""
     @State var longitud = ""
     @State var material = " "
+    @State var seleccionado: Viga?
     @State var vigArray = [Viga]()
 
     var body: some View {
         VStack{
-            TextField("Clave de la viga", text: $clave_viga)
+            TextField("Clave de viga", text: $peso)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Clave de la obra", text: $clave_obra)
+            TextField("Clave de Obra", text: $peso)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Peso de la viga", text: $peso)
+            TextField("Peso de viga", text: $peso)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Longitud de la viga", text: $longitud)
+            TextField("Longitud de viga", text: $longitud)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Material de la viga", text: $material)
+            TextField("Longitud de viga", text: $peso)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Button("Save"){
+                if (seleccionado != nil){
+                    seleccionado?.clave_viga = clave_viga
+                    seleccionado?.clave_obra = clave_obra
+                    seleccionado?.material = material
+                    seleccionado?.peso = peso
+                    seleccionado?.longitud = longitud
+                    coreDM.actualizarViga(viga: seleccionado!)
+                }else{
                 coreDM.guardarViga(clave_viga: clave_viga, clave_obra: clave_obra, peso: peso, longitud: longitud, material: material)
+                }
                 mostrarVigas()
                 clave_viga = " "
                 clave_obra = " "
                 peso = ""
                 longitud = ""
                 material = " "
+               
                 
             }
             List{
@@ -49,6 +60,14 @@ struct ContentView: View {
                         Text(vig.longitud ?? "")
                         Text(vig.material ?? "")
                         
+                    }
+                    .onTapGesture{
+                        seleccionado = vig
+                        clave_viga = vig.clave_viga ?? ""
+                        clave_obra = vig.clave_obra ?? ""
+                        peso = vig.peso ?? ""
+                        longitud = vig.longitud ?? ""
+                        material = vig.material ?? ""
                     }
                 }
                 .onDelete(perform: {
